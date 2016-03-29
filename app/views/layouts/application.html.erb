@@ -1,12 +1,18 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>HorseTracker</title>
+  <title>TimeTracker</title>
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
 </head>
 <body>
+
+<% if current_user %>
+	Welcome <%= current_user.username %> | <%= link_to 'Home', user_path(current_user.id) %> | <%= link_to 'New Customer', new_customer_path %> | <%= link_to 'New Project', new_project_path %> | <%= link_to 'New Task', new_task_path %> | <%= link_to 'Logout', '/logout' %>
+<% else %>
+	<%= link_to 'Login', '/login' %> | <%= link_to 'Signup', '/users/new' %>
+<% end %>
 
 <%= yield %>
 

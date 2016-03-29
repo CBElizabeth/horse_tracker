@@ -1,0 +1,9 @@
+<h1><%= @horse.name %>'s Info</h1>
+
+Sex: <%= @horse.sex %><br>
+Remaining Breed Count: <%= @horse.breed_count %><br>
+Total Deaths: <%= @horse.death_count %><br>
+Tier: <%= @horse.tier %><br>
+Level: <%= @horse.level %><br>
+
+<%= link_to 'Update', edit_horse_path %> | <%= link_to 'Delete', 'horses#destroy' %>

@@ -11,9 +11,59 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160329004651) do
+ActiveRecord::Schema.define(version: 20160329014614) do
+
+  create_table "customers", force: :cascade do |t|
+    t.string   "name"
+    t.string   "address_1"
+    t.string   "address_2"
+    t.string   "address_3"
+    t.string   "city"
+    t.string   "state"
+    t.string   "zip"
+    t.string   "phone_1"
+    t.string   "phone_2"
+    t.string   "fax_1"
+    t.string   "fax_2"
+    t.string   "email"
+    t.string   "website"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "projects", force: :cascade do |t|
+    t.string   "name"
+    t.integer  "customer_id"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+  end
+
+  add_index "projects", ["customer_id"], name: "index_projects_on_customer_id"
+
+  create_table "task_entries", force: :cascade do |t|
+    t.integer  "user_id"
+    t.integer  "task_id"
+    t.time     "start_time"
+    t.time     "stop_time"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_index "task_entries", ["task_id"], name: "index_task_entries_on_task_id"
+  add_index "task_entries", ["user_id"], name: "index_task_entries_on_user_id"
+
+  create_table "tasks", force: :cascade do |t|
+    t.string   "description"
+    t.boolean  "complete"
+    t.integer  "project_id"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+  end
+
+  add_index "tasks", ["project_id"], name: "index_tasks_on_project_id"
 
   create_table "users", force: :cascade do |t|
+    t.string   "name"
     t.string   "username"
     t.string   "password_digest"
     t.datetime "created_at",      null: false

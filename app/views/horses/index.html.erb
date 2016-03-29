@@ -1,0 +1,14 @@
+<h1><%= @user.username %>'s Horses</h1>
+
+<% @horses.each do |horse| %>
+	<div class="horse_card">
+		<h2><%= horse.name  %></h2>
+		Sex: <%= horse.sex %><br>
+		Remaining Breed Count: <%= horse.breed_count %><br>
+		Total Deaths: <%= horse.death_count %><br>
+		Tier: <%= horse.tier %><br>
+		Level: <%= horse.level %><br>
+	</div>
+<% end %>
+
+<%= link_to 'New Horse', new_user_horse_path %>

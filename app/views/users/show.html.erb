@@ -1,0 +1,13 @@
+<h1><%= @user.name %>'s Tasks</h1>
+
+<table class="task_table">
+	<tr>
+		<th>Project Name</th>
+		<th>Description</th>
+		<th>Duration</th>
+	</tr>
+</table>
+
+<% @tasks.each do |task| %>
+	<td><%= task.project %></td>
+<% end %>

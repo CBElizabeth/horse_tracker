@@ -1,0 +1,14 @@
+<h1>Add New Horse</h1>
+
+<%= form_for [@user, @horse] do |form| %>
+
+	Name: <%= form.text_field :name %><br>
+	Sex: <%= form.text_field :sex %><br>
+	Remaining Breed Count: <%= form.text_field :breed_count %><br>
+	Total Deaths: <%= form.text_field :death_count %><br>
+	Tier: <%= form.text_field :tier %><br>
+	Level: <%= form.text_field :level %><br>
+
+	<%= form.submit "Submit" %>
+
+<% end %>

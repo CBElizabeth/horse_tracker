@@ -13,3 +13,12 @@
  *= require_tree .
  *= require_self
  */
+
+.horse_card {
+	display: inline-block;
+	width: 200px;
+	height: 200px;
+	margin: 10px;
+	padding: 10px;
+	background: green;
+}
